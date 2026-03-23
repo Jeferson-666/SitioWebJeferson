@@ -1,210 +1,81 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f4f4f4, #e9ecef);
+    background-color: #f4f4f4;
     color: #222;
-    min-height: 100vh;
 }
 
 header {
     text-align: center;
-    padding: 25px 15px;
+    padding: 20px;
     background-color: #2c3e50;
     color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    font-size: 2rem;
 }
 
 .contenedor {
     width: 90%;
-    max-width: 700px;
+    max-width: 600px;
     margin: 30px auto;
 }
 
 .buscador {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .buscador input {
-    width: 280px;
-    padding: 12px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-}
-
-.buscador input:focus {
-    border-color: #3498db;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .buscador button {
-    padding: 12px 20px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #34495e;
     color: white;
-    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.buscador button:hover {
-    background-color: #1f2d3a;
 }
 
 .info-pokemon {
     background-color: white;
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
-    transition: 0.3s ease;
 }
 
+/* tarjeta */
 .tarjeta-pokemon img {
-    width: 220px;
-    max-width: 100%;
-    margin-bottom: 15px;
+    width: 200px;
 }
 
 .tarjeta-pokemon h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
     text-transform: capitalize;
+    margin: 10px 0;
 }
 
 .datos-pokemon {
-    text-align: left;
     margin-top: 15px;
-    display: grid;
-    gap: 12px;
+    text-align: left;
 }
 
 .dato {
-    padding: 12px 15px;
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-size: 1rem;
+    margin: 8px 0;
 }
 
-.dato strong {
-    display: inline-block;
-    min-width: 150px;
-}
+/* SOLO LOS 3 TIPOS */
 
-/* Colores según tipo */
 .tipo-water {
-    background: linear-gradient(135deg, #dff3ff, #9dd8ff);
-    border: 2px solid #4aa3df;
-    color: #0b3d5c;
+    background-color: #b3e5fc;
+    border: 2px solid #0288d1;
 }
 
 .tipo-electric {
-    background: linear-gradient(135deg, #fff8c9, #ffe66d);
-    border: 2px solid #d4b200;
-    color: #5c4700;
+    background-color: #fff59d;
+    border: 2px solid #fbc02d;
 }
 
 .tipo-fire {
-    background: linear-gradient(135deg, #ffd9c7, #ffb26b);
-    border: 2px solid #e67e22;
-    color: #6b2d00;
-}
-
-/* Otros tipos */
-.tipo-grass {
-    background: linear-gradient(135deg, #d7ffd9, #9be28f);
-    border: 2px solid #4caf50;
-    color: #1d4d20;
-}
-
-.tipo-poison {
-    background: linear-gradient(135deg, #f0d8ff, #c792ea);
-    border: 2px solid #8e44ad;
-    color: #4a235a;
-}
-
-.tipo-normal {
-    background: linear-gradient(135deg, #f2f2f2, #d9d9d9);
-    border: 2px solid #999;
-    color: #333;
-}
-
-.tipo-bug {
-    background: linear-gradient(135deg, #eef9c8, #cddc39);
-    border: 2px solid #9e9d24;
-    color: #4e4b00;
-}
-
-.tipo-ground {
-    background: linear-gradient(135deg, #f4e1c1, #d2a679);
-    border: 2px solid #a97142;
-    color: #5a381e;
-}
-
-.tipo-psychic {
-    background: linear-gradient(135deg, #ffd6eb, #ff8ac2);
-    border: 2px solid #e91e63;
-    color: #6a1236;
-}
-
-.tipo-ice {
-    background: linear-gradient(135deg, #e0faff, #a7ecff);
-    border: 2px solid #5bc0de;
-    color: #0c5460;
-}
-
-.tipo-fighting {
-    background: linear-gradient(135deg, #ffd6d6, #ff8a8a);
-    border: 2px solid #c0392b;
-    color: #641e16;
-}
-
-.tipo-rock {
-    background: linear-gradient(135deg, #e7dcc7, #c7a97b);
-    border: 2px solid #8d6e63;
-    color: #4e342e;
-}
-
-.tipo-ghost {
-    background: linear-gradient(135deg, #e5ddff, #b39ddb);
-    border: 2px solid #673ab7;
-    color: #311b92;
-}
-
-.tipo-dragon {
-    background: linear-gradient(135deg, #d9e4ff, #8fa8ff);
-    border: 2px solid #3f51b5;
-    color: #1a237e;
-}
-
-.tipo-dark {
-    background: linear-gradient(135deg, #d6d6d6, #8d8d8d);
-    border: 2px solid #424242;
-    color: #111;
-}
-
-.tipo-steel {
-    background: linear-gradient(135deg, #eef2f3, #b0bec5);
-    border: 2px solid #78909c;
-    color: #263238;
-}
-
-.tipo-fairy {
-    background: linear-gradient(135deg, #ffe0f0, #ffb6d9);
-    border: 2px solid #ec78b2;
-    color: #7a1f4f;
+    background-color: #ffccbc;
+    border: 2px solid #e64a19;
 }

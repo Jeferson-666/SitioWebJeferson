@@ -6,7 +6,7 @@ btnBuscar.addEventListener('click', () => {
     const nombre = inputNombrePokemon.value.trim().toLowerCase();
 
     if (nombre === "") {
-        sectionInfoPokemon.innerHTML = '<p>Por favor, escribe el nombre de un Pokémon.</p>';
+        sectionInfoPokemon.innerHTML = '<p>Escribe el nombre de un Pokémon.</p>';
         sectionInfoPokemon.className = 'info-pokemon';
         return;
     }
@@ -35,37 +35,37 @@ async function buscarPokemon(nombre) {
 }
 
 function traducirTipo(tipo) {
-    const tipos = {
-        water: 'Agua',
-        electric: 'Eléctrico',
-        fire: 'Fuego',
-        grass: 'Planta',
-        poison: 'Veneno',
-        normal: 'Normal',
-        bug: 'Bicho',
-        ground: 'Tierra',
-        psychic: 'Psíquico',
-        ice: 'Hielo',
-        fighting: 'Lucha',
-        rock: 'Roca',
-        ghost: 'Fantasma',
-        dragon: 'Dragón',
-        dark: 'Siniestro',
-        steel: 'Acero',
-        fairy: 'Hada',
-        flying: 'Volador'
-    };
-
-    return tipos[tipo] || tipo;
+    if (tipo === 'water') return 'Agua';
+    if (tipo === 'electric') return 'Eléctrico';
+    if (tipo === 'fire') return 'Fuego';
+    return tipo;
 }
 
 function mostrarInfoPokemon(datos) {
-    const tipoPrincipal = datos.types[0].type.name;
-    const tipoTexto = datos.types.map(t => traducirTipo(t.type.name)).join(', ');
-    const habilidad = datos.abilities[0]?.ability.name || 'No disponible';
-    const primerMovimiento = datos.moves[0]?.move.name || 'No disponible';
 
-    sectionInfoPokemon.className = `info-pokemon tipo-${tipoPrincipal}`;
+    const tipoPrincipal = datos.types[0].type.name;
+
+    const tipoTexto = datos.types.map(function(t) {
+        return traducirTipo(t.type.name);
+    }).join(', ');
+
+    // Comprobar si la respueta esta disponible
+    let habilidad = 'No disponible';
+    if (datos.abilities.length > 0) {
+        habilidad = datos.abilities[0].ability.name;
+    }
+
+    let primerMovimiento = 'No disponible';
+    if (datos.moves.length > 0) {
+        primerMovimiento = datos.moves[0].move.name;
+    }
+
+    // 3 tipos que ocupo Electrico , agua y fuego
+    if (tipoPrincipal === 'water' || tipoPrincipal === 'electric' || tipoPrincipal === 'fire') {
+        sectionInfoPokemon.className = 'info-pokemon tipo-' + tipoPrincipal;
+    } else {
+        sectionInfoPokemon.className = 'info-pokemon';
+    }
 
     sectionInfoPokemon.innerHTML = `
         <div class="tarjeta-pokemon">
