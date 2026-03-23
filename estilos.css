@@ -1,76 +1,210 @@
-:root {
-    --primary-color: #333;
-    --text-color: #fff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    transition: background-color 0.5s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f4f4f4, #e9ecef);
+    color: #222;
+    min-height: 100vh;
 }
 
-/* Estilos del Web Component (Navbar) */
-.navbar {
-    width: 100vw;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Contenedores Principales */
-main {
-    margin-top: 50px;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+header {
     text-align: center;
-    width: 350px;
-}
-
-/* Botones y Formulario */
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 25px 15px;
+    background-color: #2c3e50;
     color: white;
-    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-#btnAzul { background: #3498db; }
-#btnRojo { background: #e74c3c; }
-#btnVerde { background: #2ecc71; }
+header h1 {
+    font-size: 2rem;
+}
 
-form {
+.contenedor {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+.buscador {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
-input, textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.buscador input {
+    width: 280px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.buscador input:focus {
+    border-color: #3498db;
+}
+
+.buscador button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #34495e;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buscador button:hover {
+    background-color: #1f2d3a;
+}
+
+.info-pokemon {
+    background-color: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.tarjeta-pokemon img {
+    width: 220px;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.tarjeta-pokemon h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.datos-pokemon {
+    text-align: left;
+    margin-top: 15px;
+    display: grid;
+    gap: 12px;
+}
+
+.dato {
+    padding: 12px 15px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+}
+
+.dato strong {
+    display: inline-block;
+    min-width: 150px;
+}
+
+/* Colores según tipo */
+.tipo-water {
+    background: linear-gradient(135deg, #dff3ff, #9dd8ff);
+    border: 2px solid #4aa3df;
+    color: #0b3d5c;
+}
+
+.tipo-electric {
+    background: linear-gradient(135deg, #fff8c9, #ffe66d);
+    border: 2px solid #d4b200;
+    color: #5c4700;
+}
+
+.tipo-fire {
+    background: linear-gradient(135deg, #ffd9c7, #ffb26b);
+    border: 2px solid #e67e22;
+    color: #6b2d00;
+}
+
+/* Otros tipos */
+.tipo-grass {
+    background: linear-gradient(135deg, #d7ffd9, #9be28f);
+    border: 2px solid #4caf50;
+    color: #1d4d20;
+}
+
+.tipo-poison {
+    background: linear-gradient(135deg, #f0d8ff, #c792ea);
+    border: 2px solid #8e44ad;
+    color: #4a235a;
+}
+
+.tipo-normal {
+    background: linear-gradient(135deg, #f2f2f2, #d9d9d9);
+    border: 2px solid #999;
+    color: #333;
+}
+
+.tipo-bug {
+    background: linear-gradient(135deg, #eef9c8, #cddc39);
+    border: 2px solid #9e9d24;
+    color: #4e4b00;
+}
+
+.tipo-ground {
+    background: linear-gradient(135deg, #f4e1c1, #d2a679);
+    border: 2px solid #a97142;
+    color: #5a381e;
+}
+
+.tipo-psychic {
+    background: linear-gradient(135deg, #ffd6eb, #ff8ac2);
+    border: 2px solid #e91e63;
+    color: #6a1236;
+}
+
+.tipo-ice {
+    background: linear-gradient(135deg, #e0faff, #a7ecff);
+    border: 2px solid #5bc0de;
+    color: #0c5460;
+}
+
+.tipo-fighting {
+    background: linear-gradient(135deg, #ffd6d6, #ff8a8a);
+    border: 2px solid #c0392b;
+    color: #641e16;
+}
+
+.tipo-rock {
+    background: linear-gradient(135deg, #e7dcc7, #c7a97b);
+    border: 2px solid #8d6e63;
+    color: #4e342e;
+}
+
+.tipo-ghost {
+    background: linear-gradient(135deg, #e5ddff, #b39ddb);
+    border: 2px solid #673ab7;
+    color: #311b92;
+}
+
+.tipo-dragon {
+    background: linear-gradient(135deg, #d9e4ff, #8fa8ff);
+    border: 2px solid #3f51b5;
+    color: #1a237e;
+}
+
+.tipo-dark {
+    background: linear-gradient(135deg, #d6d6d6, #8d8d8d);
+    border: 2px solid #424242;
+    color: #111;
+}
+
+.tipo-steel {
+    background: linear-gradient(135deg, #eef2f3, #b0bec5);
+    border: 2px solid #78909c;
+    color: #263238;
+}
+
+.tipo-fairy {
+    background: linear-gradient(135deg, #ffe0f0, #ffb6d9);
+    border: 2px solid #ec78b2;
+    color: #7a1f4f;
 }
