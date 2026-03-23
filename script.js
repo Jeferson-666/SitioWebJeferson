@@ -32,3 +32,5 @@ this.innerHTML=`
 customElements.define('menu-navegacion',MenuNavegacion);//key / value como en un diccionario 
 
 //se renderiza luego se llerlo secuencialmente
+
+//agregue un comentario
