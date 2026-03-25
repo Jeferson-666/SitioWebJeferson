@@ -8,8 +8,7 @@
 
     static obtenerPokemons(){
         const datos=localStorage.getItem(this.KEY);
-        return datos ? JSON.parse.datos:[];
-
+        return datos ? JSON.parse(datos) : [];
     }
 
 

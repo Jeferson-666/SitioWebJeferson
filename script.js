@@ -28,8 +28,8 @@ btnGuardar.addEventListener('click', () => {
 
 btnLeer.addEventListener('click', () => {
     const pokemones=EjemploGuardar.obtenerPokemons();
-    alert(pokemone[0].nombre);
-    let datos_pokemones;
+    alert(pokemones[0].nombre);
+    let datos_pokemones='';
     pokemones.array.forEach(p => {
         datos_pokemones+=`Nombre: ${p.nombre},Nivel: ${p.nivel}`;
     });
