@@ -1,4 +1,10 @@
+import { EjemploGuardar }  from './js/data/EjemploGuardar.js';
+
+
 const btnBuscar = document.getElementById('btnBuscar');
+const btnGuardar = document.getElementById('btnGuardar');
+const btnLeer = document.getElementById('btnLeer');
+
 const inputNombrePokemon = document.getElementById('pokemonName');
 const sectionInfoPokemon = document.getElementById('infoPokemon');
 
@@ -13,6 +19,23 @@ btnBuscar.addEventListener('click', () => {
 
     buscarPokemon(nombre);
 });
+
+btnGuardar.addEventListener('click', () => {
+    const pokemones=[{nombre:'Pikachu',nivel:10},{nombre:'Charizard',nivel:36}];
+    EjemploGuardar.guardarPokemons(pokemones);
+    alert('Pokemon guardado');
+});
+
+btnLeer.addEventListener('click', () => {
+    const pokemones=EjemploGuardar.obtenerPokemons();
+    alert(pokemone[0].nombre);
+    let datos_pokemones;
+    pokemones.array.forEach(p => {
+        datos_pokemones+=`Nombre: ${p.nombre},Nivel: ${p.nivel}`;
+    });
+    alert(datos_pokemones);
+});
+
 
 async function buscarPokemon(nombre) {
     sectionInfoPokemon.innerHTML = '<p>Buscando Pokémon...</p>';
@@ -49,7 +72,7 @@ function mostrarInfoPokemon(datos) {
         return traducirTipo(t.type.name);
     }).join(', ');
 
-    // Comprobar si la respueta esta disponible
+    // Comprobar si esta disponible
     let habilidad = 'No disponible';
     if (datos.abilities.length > 0) {
         habilidad = datos.abilities[0].ability.name;
